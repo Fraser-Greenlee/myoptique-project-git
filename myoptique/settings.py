@@ -13,8 +13,6 @@ SECRET_KEY = '_$=$%eqxk$8ss4n7mtgarw^5$8^d5+c83!vwatr@i_81myb=e4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -26,11 +24,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-
-    'myoptique.metrix.apps.MetrixConfig',
+    'corsheaders',
+    'myoptique.metrix.apps.MetrixConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,6 +66,13 @@ TEMPLATES = [
         },
     },
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+    '127.0.0.1:9000'
+)
+
+
 
 WSGI_APPLICATION = 'myoptique.wsgi.application'
 
