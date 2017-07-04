@@ -1,8 +1,12 @@
 import graphene
 from graphene_django.types import DjangoObjectType
 
-from myoptique.metrix.models import Department, Metric
+from myoptique.metrix.models import Department, Metric, Category
 
+
+class CategoryType(DjangoObjectType):
+    class Meta:
+        model = Category
 
 class DepartmentType(DjangoObjectType):
     class Meta:
@@ -27,11 +31,20 @@ class Query(graphene.AbstractType):
 
     all_metrics = graphene.List(MetricType)
 
+    category = graphene.Field(CategoryType,
+                            id=graphene.Int(),
+                            name=graphene.String())
+
+    all_categories = graphene.List(CategoryType)
+
     def resolve_all_departments(self, args, context, info):
         return Department.objects.all()
 
     def resolve_all_metrics(self, args, context, info):
         return Metric.objects.all()
+
+    def resolve_all_categories(self, args, context, info):
+        return Category.objects.all()
 
     def resolve_department(self, args, context, info):
         id = args.get('id')
@@ -54,5 +67,17 @@ class Query(graphene.AbstractType):
 
         if name is not None:
             return Metric.objects.get(name=name)
+
+        return None
+
+    def resolve_category(self, args, context, info):
+        id = args.get('id')
+        name = args.get('name')
+
+        if id is not None:
+            return Category.objects.get(pk=id)
+
+        if name is not None:
+            return Category.objects.get(name=name)
 
         return None

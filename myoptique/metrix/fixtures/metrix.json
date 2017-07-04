@@ -1,86 +1,104 @@
 [{
+    "model": "metrix.category",
+    "pk": 1,
+    "fields": {
+        "name": "General"
+    }
+},{
+    "model": "metrix.category",
+    "pk": 2,
+    "fields": {
+        "name": "Customer Service"
+    }
+},{
+    "model": "metrix.category",
+    "pk": 3,
+    "fields": {
+        "name": "Marketing"
+    }
+},{
     "model": "metrix.department",
     "pk": 1,
     "fields": {
         "name": "GD",
-        "part_of":"Customer Service"
+        "category":2
     }
 }, {
     "model": "metrix.department",
     "pk": 2,
     "fields": {
         "name": "SGS",
-        "part_of":"Customer Service"
+        "category":2
     }
 }, {
     "model": "metrix.department",
     "pk": 3,
     "fields": {
         "name": "EWB",
-        "part_of":"Customer Service"
+        "category":2
     }
 }, {
     "model": "metrix.department",
     "pk": 4,
     "fields": {
         "name": "SEO",
-        "part_of":"Marketing"
+        "category":3
     }
 }, {
     "model": "metrix.department",
     "pk": 5,
     "fields": {
         "name": "CRM",
-        "part_of":"Marketing"
+        "category":3
     }
 }, {
     "model": "metrix.department",
     "pk": 6,
     "fields": {
         "name": "UX",
-        "part_of":"Marketing"
+        "category":3
     }
 }, {
     "model": "metrix.department",
     "pk": 7,
     "fields": {
         "name": "Buying and Merch",
-        "part_of":""
+        "category":1
     }
 }, {
     "model": "metrix.department",
     "pk": 8,
     "fields": {
         "name": "Internationals",
-        "part_of":""
+        "category":1
     }
 }, {
     "model": "metrix.department",
     "pk": 9,
     "fields": {
         "name": "Products",
-        "part_of":""
+        "category":1
     }
 }, {
     "model": "metrix.department",
     "pk": 10,
     "fields": {
         "name": "Designers",
-        "part_of":""
+        "category":1
     }
 }, {
     "model": "metrix.department",
     "pk": 11,
     "fields": {
         "name": "Warehouse",
-        "part_of":""
+        "category":1
     }
 }, {
     "model": "metrix.department",
     "pk": 12,
     "fields": {
         "name": "Tech",
-        "part_of":""
+        "category":1
     }
 }, {
     "model": "metrix.metric",
